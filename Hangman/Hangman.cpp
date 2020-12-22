@@ -13,6 +13,8 @@ struct Frames
     const char* frame = "";
 };
 
+//define frame objects to store ASCII data
+
 Frames frame1;
 Frames frame2;
 Frames frame3;
@@ -25,6 +27,7 @@ Frames frame9;
 Frames frame10;
 Frames frame11;
 
+//creates function to populate the frames with data
 void PopulateFrames()
 {
 	frame1.frame = R"(							
@@ -150,8 +153,9 @@ void PopulateFrames()
 	     []	
 	####################							)";
 	return;
-}
+} 
 
+//function to select specific line from data file
 std::fstream& GotoLine(std::fstream& file, unsigned int num) {
 	file.seekg(std::ios::beg);
 	for (int i = 0; i < num - 1; ++i) {
@@ -160,6 +164,7 @@ std::fstream& GotoLine(std::fstream& file, unsigned int num) {
 	return file;
 }
 
+//find word function can select a random word from one of 3 data bases.
 std::string findWord(int level)
 {
 	int selectnum;
@@ -192,6 +197,7 @@ std::string findWord(int level)
 	return("test");
 }
 
+//entry point.
 int main()
 {
 	srand(time(NULL));
