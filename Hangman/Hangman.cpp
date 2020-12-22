@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <time.h>
+#include <ctime>
 
 std::string banklocal = u8R"(C:\Users\ANDRE\source\repos\Hangman\x64\Release\wordlists\)";
 std::string currentstring = "test";
