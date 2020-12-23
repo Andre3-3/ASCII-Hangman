@@ -4,9 +4,12 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include "WordFinder.h"
+#include "DependencyCheck.h"
 
-std::string banklocal = u8R"(C:\Users\ANDRE\source\repos\Hangman\x64\Release\wordlists\)";
-std::string currentstring = "test";
+
+std::string banklocal = u8R"(C:\Users\ANDRE\source\repos\Hangman\x64\Debug\wordlists\)";
+std::string line;
 
 struct Frames
 {
@@ -155,55 +158,25 @@ void PopulateFrames()
 	return;
 } 
 
-//function to select specific line from data file
-std::fstream& GotoLine(std::fstream& file, unsigned int num) {
-	file.seekg(std::ios::beg);
-	for (int i = 0; i < num - 1; ++i) {
-		file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	}
-	return file;
-}
-
 //find word function can select a random word from one of 3 data bases.
 std::string findWord(int level)
 {
-	int selectnum;
-	std::string line;
-	std::string word;
-	int linenum = 0;
-	if (level <= 1)
-	{
 
-		std::fstream file(banklocal + "easywl.dat");
-		while (std::getline(file, line))
-			linenum++;
-		//fopen("wordlists/easywl.dat", "r");
-		std::cout << linenum;
-		selectnum = rand() % linenum + 1;
-		std::cout << '\n' << selectnum;
-		GotoLine(file, selectnum);
-		file >> currentstring;
-		std::cout << currentstring;
-		//file.close();
-	}
-	else if (level == 2)
-	{
-		//fopen("wordlists/mediumwl.dat","r");
-	}
-	else
-	{
-		//fopen("wordlists/hardwl.dat","r");
-	}
 	return("test");
 }
 
 //entry point.
 int main()
 {
-	srand(time(NULL));
+	if (!CheckWordLists(banklocal))
+	{
+		std::cout << "An unexpected exeption has occured, Exiting!";
+		exit(3);
+	}
     PopulateFrames();
-    std::cout << frame1.frame;
-	findWord(1);
+    std::cout << frame1.frame << '\n';
+	std::cout << WordFinder(5);
+	//findWord(1);
 }
 
 

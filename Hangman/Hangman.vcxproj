@@ -141,7 +141,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DependencyCheck.cpp" />
     <ClCompile Include="Hangman.cpp" />
+    <ClCompile Include="WordFinder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DependencyCheck.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="WordFinder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Hangman.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
