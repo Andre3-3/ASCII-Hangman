@@ -173,9 +173,10 @@ int main()
 		std::cout << "An unexpected exeption has occured, Exiting!";
 		exit(3);
 	}
+	
     PopulateFrames();
     std::cout << frame1.frame << '\n';
-	std::cout << WordFinder(5);
+	std::cout << WordFinder(1, banklocal);
 	//findWord(1);
 }
 

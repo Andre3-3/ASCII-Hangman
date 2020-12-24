@@ -3,11 +3,31 @@
 #include <iostream>
 #include <fstream>
 
-std::string WordFinder(int difficulty)
+int WordCounter(std::ifstream& file)
+{
+	int numLines = 0;
+	std::string unused;
+	while (std::getline(file, unused))
+	{
+		++numLines;
+	}
+		
+	
+	return(numLines);
+}
+
+std::string WordPicker(std::ifstream& file, int lines)
+{
+
+}
+
+std::string WordFinder(int difficulty, std::string locals)
 {
 	if (difficulty <= 1)
 	{
-		//std::fstream file(banklocal + "easywl.dat");
+		std::ifstream file(locals + "easywl.dat");
+		WordPicker(file, WordCounter(file));
+
 	}
 	else if (difficulty == 2)
 	{
@@ -19,3 +39,4 @@ std::string WordFinder(int difficulty)
 	}
 	return("test");
 }
+
