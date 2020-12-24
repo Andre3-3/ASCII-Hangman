@@ -21,8 +21,8 @@ std::string WordPicker(std::ifstream& file, int lines)
 {
 	std::string line;
 	srand(std::time(0));
-	int lineRand = std::rand() % lines + 1;
-	for (int lineno = 1; std::getline(file, line) && lineno < lines; lineno++)
+	int lineRand = std::rand() % lines + 0;
+	for (int lineno = 0; std::getline(file, line) && lineno < lines; lineno++)
 	{
 		if (lineno == lineRand)
 		{
@@ -36,19 +36,28 @@ std::string WordPicker(std::ifstream& file, int lines)
 
 std::string WordFinder(int difficulty, std::string locals)
 {
+	std::string selectedwrd;
 	if (difficulty <= 1)
 	{
 		std::ifstream file(locals + "easywl.dat");
-		std::cout << WordPicker(file, 10);
+		//std::cout << WordCounter(file);
+		std::ifstream countfile(locals + "easywl.dat"); // dont know why I have to do this? I think the WordCounter function changes the file definition.
+		selectedwrd = WordPicker(file, WordCounter(countfile));
 	}
 	else if (difficulty == 2)
 	{
-		//fopen("wordlists/mediumwl.dat","r");
+		std::ifstream file(locals + "mediumwl.dat");
+		//std::cout << WordCounter(file);
+		std::ifstream countfile(locals + "mediumwl.dat"); // dont know why I have to do this? I think the WordCounter function changes the file definition.
+		selectedwrd = WordPicker(file, WordCounter(countfile));
 	}
 	else
 	{
-		//fopen("wordlists/hardwl.dat","r");
+		std::ifstream file(locals + "hardwl.dat");
+		//std::cout << WordCounter(file);
+		std::ifstream countfile(locals + "hard.dat"); // dont know why I have to do this? I think the WordCounter function changes the file definition.
+		selectedwrd = WordPicker(file, WordCounter(countfile));
 	}
-	return("test");
+	return(selectedwrd);
 }
 

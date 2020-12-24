@@ -176,7 +176,7 @@ int main()
 	
     PopulateFrames();
     std::cout << frame1.frame << '\n';
-	WordFinder(1, banklocal);
+	std::cout << WordFinder(1, banklocal);
 	//findWord(1);
 }
 
