@@ -12,6 +12,11 @@ int WordCounter(std::ifstream& file)
 	{
 		++numLines;
 	}
+	if (numLines == 0)
+	{
+		std::cout << "A data file contains no data or an unexpected error has occured, Exiting!";
+		exit(5);
+	}
 		
 	
 	return(numLines);

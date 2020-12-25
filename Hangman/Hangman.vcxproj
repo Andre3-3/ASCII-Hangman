@@ -142,11 +142,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DependencyCheck.cpp" />
+    <ClCompile Include="GameFunctions.cpp" />
     <ClCompile Include="Hangman.cpp" />
     <ClCompile Include="WordFinder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DependencyCheck.h" />
+    <ClInclude Include="GameFunctions.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="WordFinder.h" />
   </ItemGroup>
